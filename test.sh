@@ -1,19 +1,21 @@
 #!/bin/sh
-cmp_buf=./quine_cmp
-cmp_buf2=./quine_cmp2
+scheme() {
+    csi -p "`cat $1`"
+}
 
 test_q() {
   lang=$1
-  $lang quine.$lang > $cmp_buf
-  ($lang quine.$lang | $lang )  > $cmp_buf2
-  diff $cmp_buf $cmp_buf2
-  if [ 0 -eq $(($?)) ]; then
-      echo $lang quine is a quine.
-  else
-      echo $lang quine is not quite a quine.
+  src=$(cat quine.$lang)
+  res1=$($lang quine.$lang)
+  if [ "$src" = "$res1" ]; then echo "$lang: ok"; 
+  else echo "\n$lang source:"; echo "$src"
+       echo "\n$lang output:"; echo "$res1"
+       exit 1
   fi
 }
 
 test_q "lua"
 test_q "ruby"
-rm -rf $cmp_buf $cmp_buf2
+test_q "scheme"
+#test_q "elixir"
+
