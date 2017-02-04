@@ -5,8 +5,8 @@ scheme() {
 
 test_q() {
   lang=$1
-  src=$(cat quine.$lang)
-  res1=$($lang quine.$lang)
+  src=$(cat $lang.quine)
+  res1=$($lang $lang.quine)
   if [ "$src" = "$res1" ]; 
   then echo "$lang: ✔"
   else echo "\n$lang source:"; echo "$src"
@@ -15,6 +15,6 @@ test_q() {
   fi
 }
 
-for lang in  lua ruby scheme elixir ocaml ; do test_q $lang; done
-
-
+for lang in `ls *.quine`; do
+    test_q `basename $lang .quine`
+done
