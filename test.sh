@@ -7,7 +7,8 @@ test_q() {
   lang=$1
   src=$(cat quine.$lang)
   res1=$($lang quine.$lang)
-  if [ "$src" = "$res1" ]; then echo "[OK $lang]:\n${src}\n${res1}\n"; 
+  if [ "$src" = "$res1" ]; 
+  then echo "$lang: ✔"
   else echo "\n$lang source:"; echo "$src"
        echo "\n$lang output:"; echo "$res1"
        exit 1

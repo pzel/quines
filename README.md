@@ -1,4 +1,4 @@
-#Quines in lua and ruby
+#Quines in various languages
 ####by pzel
 
 ## Requirements:
@@ -10,11 +10,13 @@ $ ruby -v
 ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
 $ csi -version
 Version 4.11.0 (rev ce980c4)
+$ elixir --version
+Elixir 1.3.3
 $ ./test.sh
-lua: ok
-ruby: ok
-scheme: ok
-
+lua: ✔
+ruby: ✔
+scheme: ✔
+elixir: ✔
 ```
 
 I hereby release this code into the public domain.
