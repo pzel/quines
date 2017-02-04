@@ -15,8 +15,6 @@ test_q() {
   fi
 }
 
-test_q "lua"
-test_q "ruby"
-test_q "scheme"
-test_q "elixir"
+for lang in  lua ruby scheme elixir ocaml ; do test_q $lang; done
+
 
