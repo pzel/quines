@@ -1,0 +1,1 @@
+fn s -> IO.puts(s <> ".(" <> inspect(s) <> ")") end.("fn s -> IO.puts(s <> \".(\" <> inspect(s) <> \")\") end")
